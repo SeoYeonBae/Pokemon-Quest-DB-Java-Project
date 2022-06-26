@@ -986,7 +986,7 @@ public class PokemonQuest extends JFrame {
 	}
 	public class NewPokeBtnListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {			
-			int poke = (int)(Math.random()*69)+1;
+			int poke = (int)(Math.random()*9)+1;
 			int gender_id = (int)(Math.random()*2)+1;
 			int character_id = (int)(Math.random()*36)+1;
 			String query = "SELECT * FROM pokemon WHERE pokemon_id ='" + poke +"'";
