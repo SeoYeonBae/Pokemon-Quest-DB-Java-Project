@@ -10,7 +10,7 @@ import javax.swing.event.*;
 import javax.swing.text.Position;
 
 public class PokemonQuest extends JFrame {
-	Connection conn; // DB ¿¬°á Connection °´Ã¼ÂüÁ¶º¯¼ö
+	Connection conn; // DB ì—°ê²° Connection ê°ì²´ì°¸ì¡°ë³€ìˆ˜
 
 	final String COVER = "src/res/blueCover.png";	
 	final String LOGIN = "src/res/login.png";
@@ -24,11 +24,11 @@ public class PokemonQuest extends JFrame {
 	final String MANAGER = "src/res/managerChoice.png";
 	final String MFEED = "src/res/mFeedback.png";
 	final String MPOKE = "src/res/mPokemon.png";
-	final int WIN_WIDTH = 805; 		// ÀüÃ¼ frameÀÇ Æø
-	final int WIN_HEIGHT = 479; 	// ÀüÃ¼ frameÀÇ ³ôÀÌ
-	boolean check; 		//¾ÆÀÌµğ Áßº¹È®ÀÎ ¿©ºÎ È®ÀÎ
-	boolean user; 		//»ç¿ëÀÚ È®ÀÎ
-	boolean showBook;	 //µµ°¨¿¡ ±×¸² ±×¸± ¿©ºÎ È®ÀÎ
+	final int WIN_WIDTH = 805; 		// ì „ì²´ frameì˜ í­
+	final int WIN_HEIGHT = 479; 	// ì „ì²´ frameì˜ ë†’ì´
+	boolean check; 		//ì•„ì´ë”” ì¤‘ë³µí™•ì¸ ì—¬ë¶€ í™•ì¸
+	boolean user; 		//ì‚¬ìš©ì í™•ì¸
+	boolean showBook;	 //ë„ê°ì— ê·¸ë¦¼ ê·¸ë¦´ ì—¬ë¶€ í™•ì¸
 
 	ImageIcon blueCoverPanel;
 	ImageIcon login;
@@ -61,20 +61,20 @@ public class PokemonQuest extends JFrame {
 	JPanel mFeedPanel;
 	JPanel mPokePanel;
 
-	JTextField id;				//·Î±×ÀÎ
+	JTextField id;				//ë¡œê·¸ì¸
 	JPasswordField pw;		
-	JTextField join_id;			//È¸¿ø°¡ÀÔ
+	JTextField join_id;			//íšŒì›ê°€ì…
 	JPasswordField join_pw;
 	JTextField name;
 	JTextField phone;
 	JTextField email;
-	JTextField info_id;			//È¸¿øÁ¤º¸
+	JTextField info_id;			//íšŒì›ì •ë³´
 	JPasswordField info_pw;
 	JTextField info_name;
 	JTextField info_phone;
 	JTextField info_email;
-	JTextField nickname;		//»Ì±â
-	JTextField poke_name;		//µµ°¨
+	JTextField nickname;		//ë½‘ê¸°
+	JTextField poke_name;		//ë„ê°
 	JTextField book_name;
 	JTextField book_nickname;
 	JTextField book_type;
@@ -82,16 +82,16 @@ public class PokemonQuest extends JFrame {
 	JTextField book_height;
 	JTextField book_weight;
 	JTextField book_character;
-	JTextArea fbText;			//À¯Àú ÇÇµå¹é
-	JTextField fb_phone;		//¸Å´ÏÀú ÇÇµå¹é
+	JTextArea fbText;			//ìœ ì € í”¼ë“œë°±
+	JTextField fb_phone;		//ë§¤ë‹ˆì € í”¼ë“œë°±
 	JTextField fb_email;
 	JTextField fb_index;
 	JTextArea getFBText;
 	JTextArea fbReply;
-	JTextField user_index;		//Á¤º¸ ÀúÀåÀ» À§ÇÑ ÅØ½ºÆ® ÇÊµå
+	JTextField user_index;		//ì •ë³´ ì €ì¥ì„ ìœ„í•œ í…ìŠ¤íŠ¸ í•„ë“œ
 	JTextField poke_index;
 	JTextField MPokeIndex;
-	JTextField mPokeName;		//¸Å´ÏÀú Æ÷ÄÏ¸ó
+	JTextField mPokeName;		//ë§¤ë‹ˆì € í¬ì¼“ëª¬
 	JTextField mPokeHeight;
 	JTextField mPokeWeight;
 	JTextField mPokePicture;
@@ -166,14 +166,14 @@ public class PokemonQuest extends JFrame {
 		mFeed = new ImageIcon(MFEED);
 		mPoke = new ImageIcon(MPOKE);
 
-		setTitle("Æ÷ÄÏ¸ó Äù½ºÆ®");
+		setTitle("í¬ì¼“ëª¬ í€˜ìŠ¤íŠ¸");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		setSize(WIN_WIDTH, WIN_HEIGHT);
-		setLocationRelativeTo(null); 		// ÇÁ·¹ÀÓ Áß¾Ó¿¡ ¶ç¿ì±â
-		setResizable(false); 				// ÇÁ·¹ÀÓ »çÀÌÁî °íÁ¤
+		setLocationRelativeTo(null); 		// í”„ë ˆì„ ì¤‘ì•™ì— ë„ìš°ê¸°
+		setResizable(false); 				// í”„ë ˆì„ ì‚¬ì´ì¦ˆ ê³ ì •
 
 		card = new CardLayout();			
-		getContentPane().setLayout(card); 	// ·¹ÀÌ¾Æ¿ôÀ» Ä«µå·Î ¼³Á¤ÇÏ°í ÇÁ·¹ÀÓ¿¡ ¾º¿ì±â
+		getContentPane().setLayout(card); 	// ë ˆì´ì•„ì›ƒì„ ì¹´ë“œë¡œ ì„¤ì •í•˜ê³  í”„ë ˆì„ì— ì”Œìš°ê¸°
 
 		coverPanel = new CoverPanel();
 		loginPanel = new LoginPanel();
@@ -377,14 +377,14 @@ public class PokemonQuest extends JFrame {
 		mPokePreviewBtn.setBorderPainted(false);
 		mPokePreviewBtn.setContentAreaFilled(false);
 
-		ButtonGroup sex = new ButtonGroup();				// ¶óµğ¿À ¹öÆ° ±×·ì
+		ButtonGroup sex = new ButtonGroup();				// ë¼ë””ì˜¤ ë²„íŠ¼ ê·¸ë£¹
 		sex.add(male);
 		sex.add(female);
 		male.setSelected(true);
 		female.setSelected(false);
 		male.setContentAreaFilled(false);
 		female.setContentAreaFilled(false);
-		ButtonGroup info_sex = new ButtonGroup();				// ¶óµğ¿À ¹öÆ° ±×·ì
+		ButtonGroup info_sex = new ButtonGroup();				// ë¼ë””ì˜¤ ë²„íŠ¼ ê·¸ë£¹
 		info_sex.add(info_male);
 		info_sex.add(info_female);
 		info_male.setSelected(true);
@@ -392,7 +392,7 @@ public class PokemonQuest extends JFrame {
 		info_male.setContentAreaFilled(false);
 		info_female.setContentAreaFilled(false);
 
-		id.setHorizontalAlignment(JTextField.CENTER);				//Áß¾ÓÁ¤·Ä
+		id.setHorizontalAlignment(JTextField.CENTER);				//ì¤‘ì•™ì •ë ¬
 		pw.setHorizontalAlignment(JTextField.CENTER);
 		join_id.setHorizontalAlignment(JTextField.CENTER);
 		join_pw.setHorizontalAlignment(JTextField.CENTER);
@@ -420,44 +420,44 @@ public class PokemonQuest extends JFrame {
 		mPokeBookPicture.setHorizontalAlignment(JTextField.CENTER);
 		mPokeSearch.setHorizontalAlignment(JTextField.CENTER);
 
-		id.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,25));				//ÆùÆ®ÁöÁ¤
-		join_id.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,25));
-		name.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,25));
-		male.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,25));
-		female.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,25));
-		phone.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,25));
-		email.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,25));
-		fbText.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,25));
-		info_id.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,25));
-		info_name.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,25));
-		info_male.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,25));
-		info_female.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,25));
-		info_phone.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,25));
-		info_email.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,25));
-		nickname.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,25));
-		poke_name.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,25));
-		book_name.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,20));
-		book_nickname.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,20));
-		book_type.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,20));
-		book_gender.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,20));
-		book_height.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,20));
-		book_weight.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,20));
-		book_character.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,20));
-		fb_phone.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,15));
-		fb_email.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,15));
-		getFBText.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,15));
-		fbReply.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,15));
-		mPokeName.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,15));	
-		mPokeHeight.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,15));
-		mPokeWeight.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,15));
-		mPokePicture.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,15));
-		mPokeBookPicture.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,15));
-		mPokeSearch.setFont(new Font("ÇÑÄÄ ¹éÁ¦ B",Font.PLAIN,25));
+		id.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,25));				//í°íŠ¸ì§€ì •
+		join_id.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,25));
+		name.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,25));
+		male.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,25));
+		female.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,25));
+		phone.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,25));
+		email.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,25));
+		fbText.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,25));
+		info_id.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,25));
+		info_name.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,25));
+		info_male.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,25));
+		info_female.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,25));
+		info_phone.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,25));
+		info_email.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,25));
+		nickname.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,25));
+		poke_name.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,25));
+		book_name.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,20));
+		book_nickname.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,20));
+		book_type.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,20));
+		book_gender.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,20));
+		book_height.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,20));
+		book_weight.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,20));
+		book_character.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,20));
+		fb_phone.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,15));
+		fb_email.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,15));
+		getFBText.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,15));
+		fbReply.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,15));
+		mPokeName.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,15));	
+		mPokeHeight.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,15));
+		mPokeWeight.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,15));
+		mPokePicture.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,15));
+		mPokeBookPicture.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,15));
+		mPokeSearch.setFont(new Font("í•œì»´ ë°±ì œ B",Font.PLAIN,25));
 
 		getContentPane().add("coverPanel",coverPanel); 		
 		card.show(getContentPane(), "coverPanel"); 							
 
-		myPokemons.addListSelectionListener(new PokemonListListener()); 		//¹öÆ°¿¡ ¾×¼Ç ¸®½º³Ê ´Ş±â
+		myPokemons.addListSelectionListener(new PokemonListListener()); 		//ë²„íŠ¼ì— ì•¡ì…˜ ë¦¬ìŠ¤ë„ˆ ë‹¬ê¸°
 		Feed.addListSelectionListener(new FeedListListener());
 		managerPoke.addListSelectionListener(new ManagerPokeListListener());
 		startBtn.addActionListener(new BtnListener());		
@@ -500,7 +500,7 @@ public class PokemonQuest extends JFrame {
 		mPokeSaveBtn.addActionListener(new MPokeSaveBtnListener());
 		mPokeDropBtn.addActionListener(new DropPokeListener());
 
-		coverPanel.add(startBtn);			//ÆĞ³Î¿¡ ¹öÆ° Ãß°¡
+		coverPanel.add(startBtn);			//íŒ¨ë„ì— ë²„íŠ¼ ì¶”ê°€
 		loginPanel.add(loginBtn);
 		loginPanel.add(joinBtn);
 		joinPanel.add(joinFinishBtn);
@@ -541,7 +541,7 @@ public class PokemonQuest extends JFrame {
 		joinPanel.add(female);
 		infoPanel.add(info_male);
 		infoPanel.add(info_female);
-		loginPanel.add(id);		//ÆĞ³Î¿¡ ÅØ½ºÆ® ÇÊµå Ãß°¡
+		loginPanel.add(id);		//íŒ¨ë„ì— í…ìŠ¤íŠ¸ í•„ë“œ ì¶”ê°€
 		loginPanel.add(pw);
 		joinPanel.add(join_id);
 		joinPanel.add(join_pw);
@@ -581,7 +581,7 @@ public class PokemonQuest extends JFrame {
 	}
 	class CoverPanel extends JPanel {
 		public void paintComponent(Graphics g) {
-			g.drawImage(blueCoverPanel.getImage(), 0, 0, null);							// ÀÌ¹ÌÁö ±×¸®±â
+			g.drawImage(blueCoverPanel.getImage(), 0, 0, null);							// ì´ë¯¸ì§€ ê·¸ë¦¬ê¸°
 			startBtn.setBounds(302, 336, 190, 44);
 		}
 	}// CoverPanel class end
@@ -718,19 +718,19 @@ public class PokemonQuest extends JFrame {
 	}	
 	private void dbConnectionInit() {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");					// JDBCµå¶óÀÌ¹ö¸¦ JVM¿µ¿ªÀ¸·Î °¡Á®¿À±â
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/¹è¼­¿¬proj2", "root", "dmlrhd");	// DB ¿¬°áÇÏ±â
+			Class.forName("com.mysql.jdbc.Driver");					// JDBCë“œë¼ì´ë²„ë¥¼ JVMì˜ì—­ìœ¼ë¡œ ê°€ì ¸ì˜¤ê¸°
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ë°°ì„œì—°proj2", "root", "dmlrhd");	// DB ì—°ê²°í•˜ê¸°
 		}
 		catch (ClassNotFoundException cnfe) {
-			System.out.println("JDBC µå¶óÀÌ¹ö Å¬·¡½º¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù : " + cnfe.getMessage());
+			System.out.println("JDBC ë“œë¼ì´ë²„ í´ë˜ìŠ¤ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤ : " + cnfe.getMessage());
 		}
 		catch (Exception ex) {
-			System.out.println("DB ¿¬°á ¿¡·¯ : " + ex.getMessage());
+			System.out.println("DB ì—°ê²° ì—ëŸ¬ : " + ex.getMessage());
 		}
 	}
 	public void prepareList() {
 		try {
-			Statement stmt = conn.createStatement();			// SQL ¹®À» ÀÛ¼ºÀ» À§ÇÑ  Statement °´Ã¼ »ı¼º
+			Statement stmt = conn.createStatement();			// SQL ë¬¸ì„ ì‘ì„±ì„ ìœ„í•œ  Statement ê°ì²´ ìƒì„±
 			if(user) {
 				ResultSet rs = stmt.executeQuery("SELECT poke_name FROM pokemon NATURAL JOIN user_pokemon up WHERE up.user_id = " 
 						+ user_index.getText().trim());			
@@ -757,30 +757,30 @@ public class PokemonQuest extends JFrame {
 				managerPoke.setListData(MPoke);		
 				managerPoke.setSelectedIndex(0);
 			}
-			stmt.close();// statement´Â »ç¿ëÈÄ ´İ´Â ½À°ü
+			stmt.close();// statementëŠ” ì‚¬ìš©í›„ ë‹«ëŠ” ìŠµê´€
 		} catch (SQLException sqlex) {
-			System.out.println("SQL ¿¡·¯ : " + sqlex.getMessage());
+			System.out.println("SQL ì—ëŸ¬ : " + sqlex.getMessage());
 			sqlex.printStackTrace();
 		}
 	}
 	public class PokemonListListener implements ListSelectionListener {
-		public void valueChanged(ListSelectionEvent lse) {					// ¸®½ºÆ®ÀÇ ¼±ÅÃÀÌ ¹Ù²ğ¶§¸¶´Ù È£Ãâ
-			if (!lse.getValueIsAdjusting() && !myPokemons.isSelectionEmpty()) {  // ÇöÀç ¼±ÅÃÀÌ ´Ù ³¡³­ °æ¿ì¿¡ Ã³¸®
+		public void valueChanged(ListSelectionEvent lse) {					// ë¦¬ìŠ¤íŠ¸ì˜ ì„ íƒì´ ë°”ë€”ë•Œë§ˆë‹¤ í˜¸ì¶œ
+			if (!lse.getValueIsAdjusting() && !myPokemons.isSelectionEmpty()) {  // í˜„ì¬ ì„ íƒì´ ë‹¤ ëë‚œ ê²½ìš°ì— ì²˜ë¦¬
 				try {
 					String type;
-					Statement stmt = conn.createStatement();				// SQL ¹®Àå ¸¸µé±â À§ÇÑ Statement °´Ã¼
+					Statement stmt = conn.createStatement();				// SQL ë¬¸ì¥ ë§Œë“¤ê¸° ìœ„í•œ Statement ê°ì²´
 					ResultSet rs = stmt.executeQuery("SELECT poke_name, height, weight, poke_gender_id, nickname, type, poke_character, book_picture, pokemon_id FROM pokemon "
 							+ "NATURAL JOIN user_pokemon up NATURAL JOIN contact_type NATURAL JOIN type NATURAL JOIN poke_character c "
 							+ "WHERE c.character_id = up.character_id AND poke_name = '" + myPokemons.getSelectedValue() + "' AND up.user_id = " + user_index.getText());
-					rs.next();											// ¿©·¯°³°¡ ¸®ÅÏµÇ¾îµµ Ã¹¹øÂ° °ÍÀ¸·Î »ç¿ë 
+					rs.next();											// ì—¬ëŸ¬ê°œê°€ ë¦¬í„´ë˜ì–´ë„ ì²«ë²ˆì§¸ ê²ƒìœ¼ë¡œ ì‚¬ìš© 
 					type = rs.getString("type");
-					book_name.setText(rs.getString("poke_name"));			// DB¿¡¼­ ¸®ÅÏ µÈ °ªÀ» °¡Áö°í ÅÃ½ºÆ® ¹Ú½º Ã¤¿ò
+					book_name.setText(rs.getString("poke_name"));			// DBì—ì„œ ë¦¬í„´ ëœ ê°’ì„ ê°€ì§€ê³  íƒìŠ¤íŠ¸ ë°•ìŠ¤ ì±„ì›€
 					book_height.setText(rs.getString("height") + "m");		
 					book_weight.setText(rs.getString("weight") + "kg");	
 					if (rs.getString("poke_gender_id").equals("1"))			
-						book_gender.setText("¼öÄÆ");
+						book_gender.setText("ìˆ˜ì»·");
 					else
-						book_gender.setText("¾ÏÄÆ");
+						book_gender.setText("ì•”ì»·");
 					book_nickname.setText(rs.getString("nickname"));
 
 					book_character.setText(rs.getString("poke_character"));
@@ -794,47 +794,47 @@ public class PokemonQuest extends JFrame {
 
 					stmt.close();
 				} catch (SQLException sqlex) {
-					System.out.println("SQL ¿¡·¯ : " + sqlex.getMessage());
+					System.out.println("SQL ì—ëŸ¬ : " + sqlex.getMessage());
 					sqlex.printStackTrace();
 				} catch (Exception ex) {
-					System.out.println("DB Handling ¿¡·¯(¸®½ºÆ® ¸®½º³Ê) : " + ex.getMessage());
+					System.out.println("DB Handling ì—ëŸ¬(ë¦¬ìŠ¤íŠ¸ ë¦¬ìŠ¤ë„ˆ) : " + ex.getMessage());
 					ex.printStackTrace();
 				}
 			}
 		}
 	}	
 	public class FeedListListener implements ListSelectionListener {
-		public void valueChanged(ListSelectionEvent lse) {					// ¸®½ºÆ®ÀÇ ¼±ÅÃÀÌ ¹Ù²ğ¶§¸¶´Ù È£Ãâ
-			if (!lse.getValueIsAdjusting() && !Feed.isSelectionEmpty()) {  // ÇöÀç ¼±ÅÃÀÌ ´Ù ³¡³­ °æ¿ì¿¡ Ã³¸®
+		public void valueChanged(ListSelectionEvent lse) {					// ë¦¬ìŠ¤íŠ¸ì˜ ì„ íƒì´ ë°”ë€”ë•Œë§ˆë‹¤ í˜¸ì¶œ
+			if (!lse.getValueIsAdjusting() && !Feed.isSelectionEmpty()) {  // í˜„ì¬ ì„ íƒì´ ë‹¤ ëë‚œ ê²½ìš°ì— ì²˜ë¦¬
 				try {
-					Statement stmt = conn.createStatement();				// SQL ¹®Àå ¸¸µé±â À§ÇÑ Statement °´Ã¼
+					Statement stmt = conn.createStatement();				// SQL ë¬¸ì¥ ë§Œë“¤ê¸° ìœ„í•œ Statement ê°ì²´
 					ResultSet rs = stmt.executeQuery("SELECT r.re_id, phone, email, r.recommend, r.reply FROM user "
 							+ "NATURAL JOIN recommend r where r.re_id = " + Feed.getSelectedValue() );
-					rs.next();											// ¿©·¯°³°¡ ¸®ÅÏµÇ¾îµµ Ã¹¹øÂ° °ÍÀ¸·Î »ç¿ë 
-					fb_phone.setText(rs.getString("phone"));			// DB¿¡¼­ ¸®ÅÏ µÈ °ªÀ» °¡Áö°í ÅÃ½ºÆ® ¹Ú½º Ã¤¿ò
+					rs.next();											// ì—¬ëŸ¬ê°œê°€ ë¦¬í„´ë˜ì–´ë„ ì²«ë²ˆì§¸ ê²ƒìœ¼ë¡œ ì‚¬ìš© 
+					fb_phone.setText(rs.getString("phone"));			// DBì—ì„œ ë¦¬í„´ ëœ ê°’ì„ ê°€ì§€ê³  íƒìŠ¤íŠ¸ ë°•ìŠ¤ ì±„ì›€
 					fb_email.setText(rs.getString("email"));		
 					getFBText.setText(rs.getString("recommend"));	
 					fbReply.setText(rs.getString("reply"));
 					fb_index.setText(rs.getString("re_id"));
 					stmt.close();
 				} catch (SQLException sqlex) {
-					System.out.println("SQL ¿¡·¯ : " + sqlex.getMessage());
+					System.out.println("SQL ì—ëŸ¬ : " + sqlex.getMessage());
 					sqlex.printStackTrace();
 				} catch (Exception ex) {
-					System.out.println("DB Handling ¿¡·¯(¸®½ºÆ® ¸®½º³Ê) : " + ex.getMessage());
+					System.out.println("DB Handling ì—ëŸ¬(ë¦¬ìŠ¤íŠ¸ ë¦¬ìŠ¤ë„ˆ) : " + ex.getMessage());
 					ex.printStackTrace();
 				}
 			}
 		}
 	}	
 	public class ManagerPokeListListener implements ListSelectionListener {
-		public void valueChanged(ListSelectionEvent lse) {					// ¸®½ºÆ®ÀÇ ¼±ÅÃÀÌ ¹Ù²ğ¶§¸¶´Ù È£Ãâ
-			if (!lse.getValueIsAdjusting() && !managerPoke.isSelectionEmpty()) {  // ÇöÀç ¼±ÅÃÀÌ ´Ù ³¡³­ °æ¿ì¿¡ Ã³¸®
+		public void valueChanged(ListSelectionEvent lse) {					// ë¦¬ìŠ¤íŠ¸ì˜ ì„ íƒì´ ë°”ë€”ë•Œë§ˆë‹¤ í˜¸ì¶œ
+			if (!lse.getValueIsAdjusting() && !managerPoke.isSelectionEmpty()) {  // í˜„ì¬ ì„ íƒì´ ë‹¤ ëë‚œ ê²½ìš°ì— ì²˜ë¦¬
 				try {
-					Statement stmt = conn.createStatement();				// SQL ¹®Àå ¸¸µé±â À§ÇÑ Statement °´Ã¼
+					Statement stmt = conn.createStatement();				// SQL ë¬¸ì¥ ë§Œë“¤ê¸° ìœ„í•œ Statement ê°ì²´
 					ResultSet rs = stmt.executeQuery("SELECT * FROM pokemon p where p.poke_name = '" + managerPoke.getSelectedValue() +"'");
-					rs.next();											// ¿©·¯°³°¡ ¸®ÅÏµÇ¾îµµ Ã¹¹øÂ° °ÍÀ¸·Î »ç¿ë 
-					mPokeName.setText(rs.getString("poke_name"));			// DB¿¡¼­ ¸®ÅÏ µÈ °ªÀ» °¡Áö°í ÅÃ½ºÆ® ¹Ú½º Ã¤¿ò
+					rs.next();											// ì—¬ëŸ¬ê°œê°€ ë¦¬í„´ë˜ì–´ë„ ì²«ë²ˆì§¸ ê²ƒìœ¼ë¡œ ì‚¬ìš© 
+					mPokeName.setText(rs.getString("poke_name"));			// DBì—ì„œ ë¦¬í„´ ëœ ê°’ì„ ê°€ì§€ê³  íƒìŠ¤íŠ¸ ë°•ìŠ¤ ì±„ì›€
 					mPokeHeight.setText(rs.getString("height"));		
 					mPokeWeight.setText(rs.getString("weight"));	
 					mPokePicture.setText(rs.getString("picture"));
@@ -842,10 +842,10 @@ public class PokemonQuest extends JFrame {
 					MPokeIndex.setText(rs.getString("pokemon_id"));
 					stmt.close();
 				} catch (SQLException sqlex) {
-					System.out.println("SQL ¿¡·¯ : " + sqlex.getMessage());
+					System.out.println("SQL ì—ëŸ¬ : " + sqlex.getMessage());
 					sqlex.printStackTrace();
 				} catch (Exception ex) {
-					System.out.println("DB Handling ¿¡·¯(¸®½ºÆ® ¸®½º³Ê) : " + ex.getMessage());
+					System.out.println("DB Handling ì—ëŸ¬(ë¦¬ìŠ¤íŠ¸ ë¦¬ìŠ¤ë„ˆ) : " + ex.getMessage());
 					ex.printStackTrace();
 				}
 			}
@@ -855,7 +855,7 @@ public class PokemonQuest extends JFrame {
 		public void actionPerformed (ActionEvent e) {
 			if(check) {
 				try {
-					Statement stmt = conn.createStatement();				// SQL ¹®À» ÀÛ¼ºÀ» À§ÇÑ  Statement °´Ã¼ »ı¼º
+					Statement stmt = conn.createStatement();				// SQL ë¬¸ì„ ì‘ì„±ì„ ìœ„í•œ  Statement ê°ì²´ ìƒì„±
 					int gender_id;
 					if (male.isSelected())
 						gender_id = 1;
@@ -863,17 +863,17 @@ public class PokemonQuest extends JFrame {
 						gender_id = 2;
 					if(join_id.getText().isEmpty() || join_pw.getText().isEmpty()
 							|| name.getText().isEmpty() || phone.getText().isEmpty() || email.getText().isEmpty()) {
-						JOptionPane.showMessageDialog(newFrame, "ºó Ä­ÀÌ ÀÖ¾î¿ä...! T3T");
+						JOptionPane.showMessageDialog(newFrame, "ë¹ˆ ì¹¸ì´ ìˆì–´ìš”...! T3T");
 					}
 					else {
-						stmt.executeUpdate("INSERT INTO user (gender_id, id, pw, name, phone, email) VALUES (" +	// »õ ·¹ÄÚµå·Î º¯°æ
+						stmt.executeUpdate("INSERT INTO user (gender_id, id, pw, name, phone, email) VALUES (" +	// ìƒˆ ë ˆì½”ë“œë¡œ ë³€ê²½
 								gender_id + ", '" +
 								join_id.getText().trim() + "', '" +
 								join_pw.getText().trim() + "', '" +
 								name.getText().trim() + "', '" +
 								phone .getText().trim() + "', '" +
 								email.getText().trim() + "')");
-						JOptionPane.showMessageDialog(newFrame, "È¸¿ø°¡ÀÔÀ» ÃàÇÏÇÕ´Ï´Ù! ¡Ú");
+						JOptionPane.showMessageDialog(newFrame, "íšŒì›ê°€ì…ì„ ì¶•í•˜í•©ë‹ˆë‹¤! â˜…");
 						getContentPane().add("LoginPanel",loginPanel); 
 						card.show(getContentPane(), "LoginPanel"); 
 						join_id.setText("");
@@ -886,15 +886,15 @@ public class PokemonQuest extends JFrame {
 					}
 					stmt.close();
 				} catch (SQLException sqlex) {
-					System.out.println("SQL ¿¡·¯ : " + sqlex.getMessage());
+					System.out.println("SQL ì—ëŸ¬ : " + sqlex.getMessage());
 					sqlex.printStackTrace();
 				} catch (Exception ex) {
-					System.out.println("DB Handling ¿¡·¯(SAVE ¸®½º³Ê) : " + ex.getMessage());
+					System.out.println("DB Handling ì—ëŸ¬(SAVE ë¦¬ìŠ¤ë„ˆ) : " + ex.getMessage());
 					ex.printStackTrace();
 				}
 			}
 			else
-				JOptionPane.showMessageDialog(newFrame, "¾ÆÀÌµğ Áßº¹ È®ÀÎÀ» ÇØÁÖ¼¼¿ä! ¢¾");
+				JOptionPane.showMessageDialog(newFrame, "ì•„ì´ë”” ì¤‘ë³µ í™•ì¸ì„ í•´ì£¼ì„¸ìš”! â™¥");
 		}
 	}
 	public class IdCheckListener implements ActionListener {
@@ -919,11 +919,11 @@ public class PokemonQuest extends JFrame {
 					}
 				}
 				if(idEmpty)
-					JOptionPane.showMessageDialog(newFrame, "¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ë¢¾");
+					JOptionPane.showMessageDialog(newFrame, "ì•„ì´ë””ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš©â™¥");
 				else if(idAlready)
-					JOptionPane.showMessageDialog(newFrame, "ÀÌ¹Ì ÀÖ´Â ¾ÆÀÌµğ ÀÔ´Ï´Ù...! T3T");
+					JOptionPane.showMessageDialog(newFrame, "ì´ë¯¸ ìˆëŠ” ì•„ì´ë”” ì…ë‹ˆë‹¤...! T3T");
 				else if(idPossible)
-					JOptionPane.showMessageDialog(newFrame, "»ç¿ë °¡´ÉÇÑ ¾ÆÀÌµğ ÀÔ´Ï´Ù!¢¾");
+					JOptionPane.showMessageDialog(newFrame, "ì‚¬ìš© ê°€ëŠ¥í•œ ì•„ì´ë”” ì…ë‹ˆë‹¤!â™¥");
 			}catch (SQLException sE){
 				sE.printStackTrace();
 			}
@@ -935,7 +935,7 @@ public class PokemonQuest extends JFrame {
 			String loginPass = pw.getText().trim();
 			String query = "SELECT * FROM user WHERE id ='" + loginID +"'";
 			if(id.getText().isEmpty() || pw.getText().isEmpty()) {
-				JOptionPane.showMessageDialog(newFrame, "¾ÆÀÌµğ¿Í ºñ¹Ğ¹øÈ£ ¸ğµÎ ÀÔ·ÂÇØÁÖ¼¼¿ä...! T3T");
+				JOptionPane.showMessageDialog(newFrame, "ì•„ì´ë””ì™€ ë¹„ë°€ë²ˆí˜¸ ëª¨ë‘ ì…ë ¥í•´ì£¼ì„¸ìš”...! T3T");
 			}
 			else if(loginPass.equals("5098")) {
 				getContentPane().add("ManagerChoicePanel", mChoicePanel); 
@@ -967,18 +967,18 @@ public class PokemonQuest extends JFrame {
 							prepareList();
 						}
 						else {
-							JOptionPane.showMessageDialog(newFrame, "¾ÆÀÌµğ¿Í ºñ¹Ğ¹øÈ£°¡ ¸ÂÁö ¾Ê¾Æ¿ä...! ¤·¤±¤·!");
+							JOptionPane.showMessageDialog(newFrame, "ì•„ì´ë””ì™€ ë¹„ë°€ë²ˆí˜¸ê°€ ë§ì§€ ì•Šì•„ìš”...! ã…‡ã…ã…‡!");
 						}
 						stmt.close();
 					}
 					else
-						JOptionPane.showMessageDialog(newFrame, "Á¸ÀçÇÏÁö ¾Ê´Â ¾ÆÀÌµğ ÀÔ´Ï´Ù...! ¤·¤±¤·!");
+						JOptionPane.showMessageDialog(newFrame, "ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ì•„ì´ë”” ì…ë‹ˆë‹¤...! ã…‡ã…ã…‡!");
 				}
 				catch (SQLException sqlex) {
-					System.out.println("SQL ¿¡·¯ : " + sqlex.getMessage());
+					System.out.println("SQL ì—ëŸ¬ : " + sqlex.getMessage());
 					sqlex.printStackTrace();
 				} catch (Exception ex) {
-					System.out.println("DB Handling ¿¡·¯(SAVE ¸®½º³Ê) : " + ex.getMessage());
+					System.out.println("DB Handling ì—ëŸ¬(SAVE ë¦¬ìŠ¤ë„ˆ) : " + ex.getMessage());
 					ex.printStackTrace();
 				}
 			}
@@ -986,7 +986,7 @@ public class PokemonQuest extends JFrame {
 	}
 	public class NewPokeBtnListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {			
-			int poke = (int)(Math.random()*3)+1;
+			int poke = (int)(Math.random()*69)+1;
 			int gender_id = (int)(Math.random()*2)+1;
 			int character_id = (int)(Math.random()*36)+1;
 			String query = "SELECT * FROM pokemon WHERE pokemon_id ='" + poke +"'";
@@ -995,7 +995,7 @@ public class PokemonQuest extends JFrame {
 				Statement stmt = conn.createStatement();	
 				ResultSet rs2 = stmt.executeQuery(query2);
 				if(rs2.next())
-					JOptionPane.showMessageDialog(newFrame, "ÀÌ¹Ì °¡Áö°í ÀÖ´Â ¾ÆÀÌ°¡ ³ª¿Ô¾î¿ä! ´Ù½Ã »Ì¾ÆÁÖ¼¼¿ä!");
+					JOptionPane.showMessageDialog(newFrame, "ì´ë¯¸ ê°€ì§€ê³  ìˆëŠ” ì•„ì´ê°€ ë‚˜ì™”ì–´ìš”! ë‹¤ì‹œ ë½‘ì•„ì£¼ì„¸ìš”!");
 				else {
 				ResultSet rs = stmt.executeQuery(query);
 				prepareList();
@@ -1005,7 +1005,7 @@ public class PokemonQuest extends JFrame {
 					poke_index.setText(rs.getString("pokemon_id"));
 					getContentPane().add("NewFriendPanel",newFriendPanel); 
 					card.show(getContentPane(), "NewFriendPanel");
-					stmt.executeUpdate("INSERT INTO user_pokemon (user_id, pokemon_id, character_id, poke_gender_id) VALUES (" +	// »õ ·¹ÄÚµå·Î º¯°æ
+					stmt.executeUpdate("INSERT INTO user_pokemon (user_id, pokemon_id, character_id, poke_gender_id) VALUES (" +	// ìƒˆ ë ˆì½”ë“œë¡œ ë³€ê²½
 							user_index.getText().trim() + ", " +
 							poke_index.getText().trim() + ", " +
 							character_id + ", " +
@@ -1015,10 +1015,10 @@ public class PokemonQuest extends JFrame {
 				}
 			}
 			catch (SQLException sqlex) {
-				System.out.println("SQL ¿¡·¯ : " + sqlex.getMessage());
+				System.out.println("SQL ì—ëŸ¬ : " + sqlex.getMessage());
 				sqlex.printStackTrace();
 			} catch (Exception ex) {
-				System.out.println("DB Handling ¿¡·¯(SAVE ¸®½º³Ê) : " + ex.getMessage());
+				System.out.println("DB Handling ì—ëŸ¬(SAVE ë¦¬ìŠ¤ë„ˆ) : " + ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
@@ -1027,13 +1027,13 @@ public class PokemonQuest extends JFrame {
 		public void actionPerformed(ActionEvent e) {	
 			try {
 				if(nickname.getText().isEmpty()) {
-					JOptionPane.showMessageDialog(newFrame, "º°¸íÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä! ¢¾");
+					JOptionPane.showMessageDialog(newFrame, "ë³„ëª…ì„ ì…ë ¥í•´ì£¼ì„¸ìš”! â™¥");
 				}
 				else {
 					Statement stmt = conn.createStatement();		
-					stmt.executeUpdate("UPDATE user_pokemon SET nickname = '" +	// »õ ·¹ÄÚµå·Î º¯°æ
+					stmt.executeUpdate("UPDATE user_pokemon SET nickname = '" +	// ìƒˆ ë ˆì½”ë“œë¡œ ë³€ê²½
 							nickname.getText().trim() + "' WHERE pokemon_id = " + poke_index.getText().trim());
-					JOptionPane.showMessageDialog(newFrame, "µµ°¨¿¡ Ãß°¡µÇ¾ú½À´Ï´Ù!¢¾");
+					JOptionPane.showMessageDialog(newFrame, "ë„ê°ì— ì¶”ê°€ë˜ì—ˆìŠµë‹ˆë‹¤!â™¥");
 					getContentPane().add("GamePanel",gamePanel); 
 					card.show(getContentPane(), "GamePanel"); 
 					nickname.setText("");
@@ -1041,10 +1041,10 @@ public class PokemonQuest extends JFrame {
 				}
 			}
 			catch (SQLException sqlex) {
-				System.out.println("SQL ¿¡·¯ : " + sqlex.getMessage());
+				System.out.println("SQL ì—ëŸ¬ : " + sqlex.getMessage());
 				sqlex.printStackTrace();
 			} catch (Exception ex) {
-				System.out.println("DB Handling ¿¡·¯(SAVE ¸®½º³Ê) : " + ex.getMessage());
+				System.out.println("DB Handling ì—ëŸ¬(SAVE ë¦¬ìŠ¤ë„ˆ) : " + ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
@@ -1052,7 +1052,7 @@ public class PokemonQuest extends JFrame {
 	public class InfoFinishBtnListener implements ActionListener {
 		public void actionPerformed (ActionEvent e) {
 			try {
-				Statement stmt = conn.createStatement();				// SQL ¹®À» ÀÛ¼ºÀ» À§ÇÑ  Statement °´Ã¼ »ı¼º
+				Statement stmt = conn.createStatement();				// SQL ë¬¸ì„ ì‘ì„±ì„ ìœ„í•œ  Statement ê°ì²´ ìƒì„±
 				int gender_id;
 				if (info_male.isSelected())
 					gender_id = 1;
@@ -1063,13 +1063,13 @@ public class PokemonQuest extends JFrame {
 						info_pw.getText().trim() + "', name = '" + info_name.getText().trim() + "', email = '" +
 						info_email.getText().trim() + "', phone = '" + info_phone.getText().trim() + 
 						"' WHERE user_id = " + user_index.getText().trim());
-				JOptionPane.showMessageDialog(newFrame, "Á¤º¸¼öÁ¤ÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù! ¡Ú");
+				JOptionPane.showMessageDialog(newFrame, "ì •ë³´ìˆ˜ì •ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤! â˜…");
 				stmt.close();
 			} catch (SQLException sqlex) {
-				System.out.println("SQL ¿¡·¯ : " + sqlex.getMessage());
+				System.out.println("SQL ì—ëŸ¬ : " + sqlex.getMessage());
 				sqlex.printStackTrace();
 			} catch (Exception ex) {
-				System.out.println("DB Handling ¿¡·¯(SAVE ¸®½º³Ê) : " + ex.getMessage());
+				System.out.println("DB Handling ì—ëŸ¬(SAVE ë¦¬ìŠ¤ë„ˆ) : " + ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
@@ -1077,19 +1077,19 @@ public class PokemonQuest extends JFrame {
 	public class DropIDBtnListener implements ActionListener {
 		public void actionPerformed (ActionEvent e) {
 			try {
-				Statement stmt = conn.createStatement();				// SQL ¹®À» ÀÛ¼ºÀ» À§ÇÑ  Statement °´Ã¼ »ı¼º
+				Statement stmt = conn.createStatement();				// SQL ë¬¸ì„ ì‘ì„±ì„ ìœ„í•œ  Statement ê°ì²´ ìƒì„±
 				stmt.executeUpdate("DELETE FROM user_pokemon WHERE user_id = " + user_index.getText().trim());
 				stmt.executeUpdate("DELETE FROM recommend WHERE user_id = " + user_index.getText().trim());
 				stmt.executeUpdate("DELETE FROM user WHERE user_id = " + user_index.getText().trim());
-				JOptionPane.showMessageDialog(newFrame, "²À ´Ù½Ã µ¹¾Æ¿Í¾ß ÇØ¿ä...8¤µ8");
+				JOptionPane.showMessageDialog(newFrame, "ê¼­ ë‹¤ì‹œ ëŒì•„ì™€ì•¼ í•´ìš”...8ã……8");
 				getContentPane().add("LoginPanel",loginPanel); 
 				card.show(getContentPane(), "LoginPanel"); 
 				stmt.close();
 			} catch (SQLException sqlex) {
-				System.out.println("SQL ¿¡·¯ : " + sqlex.getMessage());
+				System.out.println("SQL ì—ëŸ¬ : " + sqlex.getMessage());
 				sqlex.printStackTrace();
 			} catch (Exception ex) {
-				System.out.println("DB Handling ¿¡·¯(SAVE ¸®½º³Ê) : " + ex.getMessage());
+				System.out.println("DB Handling ì—ëŸ¬(SAVE ë¦¬ìŠ¤ë„ˆ) : " + ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
@@ -1097,18 +1097,18 @@ public class PokemonQuest extends JFrame {
 	public class fbSaveButtonListener implements ActionListener {
 		public void actionPerformed (ActionEvent e) {
 			try {
-				Statement stmt = conn.createStatement();				// SQL ¹®À» ÀÛ¼ºÀ» À§ÇÑ  Statement °´Ã¼ »ı¼º
-				stmt.executeUpdate("INSERT INTO recommend (user_id, recommend) VALUES (" +	// »õ ·¹ÄÚµå·Î º¯°æ
+				Statement stmt = conn.createStatement();				// SQL ë¬¸ì„ ì‘ì„±ì„ ìœ„í•œ  Statement ê°ì²´ ìƒì„±
+				stmt.executeUpdate("INSERT INTO recommend (user_id, recommend) VALUES (" +	// ìƒˆ ë ˆì½”ë“œë¡œ ë³€ê²½
 						user_index.getText().trim() + ", '" +
 						fbText.getText() + "')");
-				JOptionPane.showMessageDialog(newFrame, "°³¹ßÀÚ¿¡°Ô Àü¼ÛµÇ¾ú½À´Ï´Ù!");
+				JOptionPane.showMessageDialog(newFrame, "ê°œë°œìì—ê²Œ ì „ì†¡ë˜ì—ˆìŠµë‹ˆë‹¤!");
 				fbText.setText("");
 				stmt.close();
 			} catch (SQLException sqlex) {
-				System.out.println("SQL ¿¡·¯ : " + sqlex.getMessage());
+				System.out.println("SQL ì—ëŸ¬ : " + sqlex.getMessage());
 				sqlex.printStackTrace();
 			} catch (Exception ex) {
-				System.out.println("DB Handling ¿¡·¯(SAVE ¸®½º³Ê) : " + ex.getMessage());
+				System.out.println("DB Handling ì—ëŸ¬(SAVE ë¦¬ìŠ¤ë„ˆ) : " + ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
@@ -1116,17 +1116,17 @@ public class PokemonQuest extends JFrame {
 	public class ReleaseButtonListener implements ActionListener {
 		public void actionPerformed (ActionEvent e) {
 			try {
-				Statement stmt = conn.createStatement();				// SQL ¹®À» ÀÛ¼ºÀ» À§ÇÑ  Statement °´Ã¼ »ı¼º
+				Statement stmt = conn.createStatement();				// SQL ë¬¸ì„ ì‘ì„±ì„ ìœ„í•œ  Statement ê°ì²´ ìƒì„±
 				stmt.executeUpdate("DELETE FROM user_pokemon WHERE pokemon_id = " +
 						poke_index.getText().trim() + " AND user_id = " + user_index.getText().trim());
 				stmt.close();
-				JOptionPane.showMessageDialog(newFrame, "ÀÚ¿¬À¸·Î µ¹¾Æ°¬¾î¿ä...!");
-				prepareList();											// ¸®½ºÆ® ¹Ú½º »õ ¸®½ºÆ®·Î ´Ù½Ã Ã¤¿ò 
+				JOptionPane.showMessageDialog(newFrame, "ìì—°ìœ¼ë¡œ ëŒì•„ê°”ì–´ìš”...!");
+				prepareList();											// ë¦¬ìŠ¤íŠ¸ ë°•ìŠ¤ ìƒˆ ë¦¬ìŠ¤íŠ¸ë¡œ ë‹¤ì‹œ ì±„ì›€ 
 			} catch (SQLException sqlex) {
-				System.out.println("SQL ¿¡·¯ : " + sqlex.getMessage());
+				System.out.println("SQL ì—ëŸ¬ : " + sqlex.getMessage());
 				sqlex.printStackTrace();
 			} catch (Exception ex) {
-				System.out.println("DB Handling ¿¡·¯(DELETE ¸®½º³Ê) : " + ex.getMessage());
+				System.out.println("DB Handling ì—ëŸ¬(DELETE ë¦¬ìŠ¤ë„ˆ) : " + ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
@@ -1135,17 +1135,17 @@ public class PokemonQuest extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			try {
 				Statement stmt = conn.createStatement();		
-				stmt.executeUpdate("UPDATE user_pokemon SET nickname = '" +	// »õ ·¹ÄÚµå·Î º¯°æ
+				stmt.executeUpdate("UPDATE user_pokemon SET nickname = '" +	// ìƒˆ ë ˆì½”ë“œë¡œ ë³€ê²½
 						book_nickname.getText().trim() + "' WHERE pokemon_id = " + poke_index.getText().trim());
-				JOptionPane.showMessageDialog(newFrame, "¼öÁ¤ ¿Ï·á!¢¾");
+				JOptionPane.showMessageDialog(newFrame, "ìˆ˜ì • ì™„ë£Œ!â™¥");
 				prepareList();
 				stmt.close();
 			}
 			catch (SQLException sqlex) {
-				System.out.println("SQL ¿¡·¯ : " + sqlex.getMessage());
+				System.out.println("SQL ì—ëŸ¬ : " + sqlex.getMessage());
 				sqlex.printStackTrace();
 			} catch (Exception ex) {
-				System.out.println("DB Handling ¿¡·¯(SAVE ¸®½º³Ê) : " + ex.getMessage());
+				System.out.println("DB Handling ì—ëŸ¬(SAVE ë¦¬ìŠ¤ë„ˆ) : " + ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
@@ -1162,44 +1162,44 @@ public class PokemonQuest extends JFrame {
 							"poke_name = '" + mPokeName.getText().trim() + "', height = '" + mPokeHeight.getText().trim() + 
 							"', weight  = '" + mPokeWeight.getText().trim() + "', book_picture = '" + mPokeBookPicture.getText().trim() + 
 							"', picture = '" + mPokePicture.getText().trim() + "' WHERE pokemon_id = " + mpoke_index);
-					JOptionPane.showMessageDialog(newFrame, "¼öÁ¤µÇ¾ú½À´Ï´Ù.");
+					JOptionPane.showMessageDialog(newFrame, "ìˆ˜ì •ë˜ì—ˆìŠµë‹ˆë‹¤.");
 					prepareList();
 				}else {
-					stmt.executeUpdate("INSERT INTO pokemon (poke_name, height, weight, book_picture, picture) VALUES ( '" +	// »õ ·¹ÄÚµå·Î º¯°æ
+					stmt.executeUpdate("INSERT INTO pokemon (poke_name, height, weight, book_picture, picture) VALUES ( '" +	// ìƒˆ ë ˆì½”ë“œë¡œ ë³€ê²½
 							mPokeName.getText().trim() + "' , '" +
 							mPokeHeight.getText().trim() + "', '" +
 							mPokeWeight.getText().trim() + "', '" +
 							mPokeBookPicture.getText().trim() + "', '" +
 							mPokePicture.getText().trim() + "')");
-					JOptionPane.showMessageDialog(newFrame, "ÀúÀåµÇ¾ú½À´Ï´Ù.");
+					JOptionPane.showMessageDialog(newFrame, "ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤.");
 					prepareList();
 				}
 				
 				stmt.close();
 			}
 			catch (SQLException sqlex) {
-				System.out.println("SQL ¿¡·¯ : " + sqlex.getMessage());
+				System.out.println("SQL ì—ëŸ¬ : " + sqlex.getMessage());
 				sqlex.printStackTrace();
 			} catch (Exception ex) {
-				System.out.println("DB Handling ¿¡·¯(SAVE ¸®½º³Ê) : " + ex.getMessage());
+				System.out.println("DB Handling ì—ëŸ¬(SAVE ë¦¬ìŠ¤ë„ˆ) : " + ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
 	}public class DropPokeListener implements ActionListener {
 		public void actionPerformed (ActionEvent e) {
 			try {
-				Statement stmt = conn.createStatement();				// SQL ¹®À» ÀÛ¼ºÀ» À§ÇÑ  Statement °´Ã¼ »ı¼º
+				Statement stmt = conn.createStatement();				// SQL ë¬¸ì„ ì‘ì„±ì„ ìœ„í•œ  Statement ê°ì²´ ìƒì„±
 				stmt.executeUpdate("DELETE FROM user_pokemon WHERE pokemon_id = " + MPokeIndex.getText().trim());
 				stmt.executeUpdate("DELETE FROM contact_type WHERE pokemon_id = " + MPokeIndex.getText().trim());
 				stmt.executeUpdate("DELETE FROM pokemon WHERE pokemon_id = " + MPokeIndex.getText().trim());
-				JOptionPane.showMessageDialog(newFrame, "»èÁ¦µÇ¾ú½À´Ï´Ù.");
+				JOptionPane.showMessageDialog(newFrame, "ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.");
 				prepareList();
 				stmt.close();
 			} catch (SQLException sqlex) {
-				System.out.println("SQL ¿¡·¯ : " + sqlex.getMessage());
+				System.out.println("SQL ì—ëŸ¬ : " + sqlex.getMessage());
 				sqlex.printStackTrace();
 			} catch (Exception ex) {
-				System.out.println("DB Handling ¿¡·¯(SAVE ¸®½º³Ê) : " + ex.getMessage());
+				System.out.println("DB Handling ì—ëŸ¬(SAVE ë¦¬ìŠ¤ë„ˆ) : " + ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
@@ -1207,18 +1207,18 @@ public class PokemonQuest extends JFrame {
 	public class fbFinishListener implements ActionListener {
 		public void actionPerformed (ActionEvent e) {
 			try {
-				Statement stmt = conn.createStatement();				// SQL ¹®À» ÀÛ¼ºÀ» À§ÇÑ  Statement °´Ã¼ »ı¼º
-				stmt.executeUpdate("UPDATE recommend SET reply = '" +	// »õ ·¹ÄÚµå·Î º¯°æ
+				Statement stmt = conn.createStatement();				// SQL ë¬¸ì„ ì‘ì„±ì„ ìœ„í•œ  Statement ê°ì²´ ìƒì„±
+				stmt.executeUpdate("UPDATE recommend SET reply = '" +	// ìƒˆ ë ˆì½”ë“œë¡œ ë³€ê²½
 						fbReply.getText().trim() + "' where re_id = " + fb_index.getText().trim());
-				JOptionPane.showMessageDialog(newFrame, "ÀúÀåµÇ¾ú½À´Ï´Ù.");
+				JOptionPane.showMessageDialog(newFrame, "ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤.");
 				fbReply.setText("");
 				prepareList();
 				stmt.close();
 			} catch (SQLException sqlex) {
-				System.out.println("SQL ¿¡·¯ : " + sqlex.getMessage());
+				System.out.println("SQL ì—ëŸ¬ : " + sqlex.getMessage());
 				sqlex.printStackTrace();
 			} catch (Exception ex) {
-				System.out.println("DB Handling ¿¡·¯(SAVE ¸®½º³Ê) : " + ex.getMessage());
+				System.out.println("DB Handling ì—ëŸ¬(SAVE ë¦¬ìŠ¤ë„ˆ) : " + ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
@@ -1226,104 +1226,104 @@ public class PokemonQuest extends JFrame {
 	public class ManagerPokemonListener implements ActionListener {
 		public void actionPerformed (ActionEvent e) {
 			try {
-				Statement stmt = conn.createStatement();				// SQL ¹®À» ÀÛ¼ºÀ» À§ÇÑ  Statement °´Ã¼ »ı¼º
+				Statement stmt = conn.createStatement();				// SQL ë¬¸ì„ ì‘ì„±ì„ ìœ„í•œ  Statement ê°ì²´ ìƒì„±
 				getContentPane().add("ManagerPokePanel",mPokePanel); 
 				card.show(getContentPane(), "ManagerPokePanel");
 				stmt.close();
 			} catch (SQLException sqlex) {
-				System.out.println("SQL ¿¡·¯ : " + sqlex.getMessage());
+				System.out.println("SQL ì—ëŸ¬ : " + sqlex.getMessage());
 				sqlex.printStackTrace();
 			} catch (Exception ex) {
-				System.out.println("DB Handling ¿¡·¯(SAVE ¸®½º³Ê) : " + ex.getMessage());
+				System.out.println("DB Handling ì—ëŸ¬(SAVE ë¦¬ìŠ¤ë„ˆ) : " + ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
 	}
 	public class PokemonDisplayButtonListener implements ActionListener {
 		public void actionPerformed (ActionEvent e) {
-			// DB¿¡¼­ °¡Á®¿À´Â µ¥ÀÌÅÍ¸¦ rowObjectsÀÇ ÇüÅÂ·Î ÀúÀåÇÏ°í ÀÌµéÀÇ ¸®½ºÆ®¸¦ Printer ¶Ç´Â Preview·Î º¸³» ÁÜ
-			ArrayList<RowObjects> rowList = new ArrayList<RowObjects>();	// ÇàµéÀÇ ¸®½ºÆ®
-			RowObjects line;												// ÇÏ³ªÀÇ Çà
-			PrintObject word;												// ÇÏ³ªÀÇ ´Ü¾î
+			// DBì—ì„œ ê°€ì ¸ì˜¤ëŠ” ë°ì´í„°ë¥¼ rowObjectsì˜ í˜•íƒœë¡œ ì €ì¥í•˜ê³  ì´ë“¤ì˜ ë¦¬ìŠ¤íŠ¸ë¥¼ Printer ë˜ëŠ” Previewë¡œ ë³´ë‚´ ì¤Œ
+			ArrayList<RowObjects> rowList = new ArrayList<RowObjects>();	// í–‰ë“¤ì˜ ë¦¬ìŠ¤íŠ¸
+			RowObjects line;												// í•˜ë‚˜ì˜ í–‰
+			PrintObject word;												// í•˜ë‚˜ì˜ ë‹¨ì–´
 			try {
-				Statement stmt = conn.createStatement();					// SQL ¹®Àå ¸¸µé±â À§ÇÑ Statement °´Ã¼
+				Statement stmt = conn.createStatement();					// SQL ë¬¸ì¥ ë§Œë“¤ê¸° ìœ„í•œ Statement ê°ì²´
 				ResultSet rs = stmt.executeQuery("SELECT * FROM pokemon");
 				while(rs.next()) {
-					line = new RowObjects();								// 5°³ÀÇ ´Ü¾î°¡ 1ÁÙ
+					line = new RowObjects();								// 5ê°œì˜ ë‹¨ì–´ê°€ 1ì¤„
 					line.add(new PrintObject(rs.getString("pokemon_id"), 20));
 					line.add(new PrintObject(rs.getString("poke_name"), 20));
 					line.add(new PrintObject(rs.getString("height"), 20));
 					line.add(new PrintObject(rs.getString("weight"), 5));
-					rowList.add(line);										// Ãâ·ÂÇØ¾ß µÉ ÀüÃ¼ ¸®½ºÆ®¸¦ ¸¸µë									
+					rowList.add(line);										// ì¶œë ¥í•´ì•¼ ë  ì „ì²´ ë¦¬ìŠ¤íŠ¸ë¥¼ ë§Œë“¬									
 				}
 				stmt.close();
-				// °¢ ÆäÀÌÁöÀÇ Ä®·³ Çì´õ¸¦ À§ÇØ ÇÑ ÁÙ ¸¸µéÀ½
-				line = new RowObjects();									// 5°³ÀÇ ´Ü¾î°¡ 1ÁÙ
-				line.add(new PrintObject("¹øÈ£", 20));
-				line.add(new PrintObject("ÀÌ¸§", 20));
-				line.add(new PrintObject("Å°(m)", 20));
-				line.add(new PrintObject("¸ö¹«°Ô(kg)", 5));
+				// ê° í˜ì´ì§€ì˜ ì¹¼ëŸ¼ í—¤ë”ë¥¼ ìœ„í•´ í•œ ì¤„ ë§Œë“¤ìŒ
+				line = new RowObjects();									// 5ê°œì˜ ë‹¨ì–´ê°€ 1ì¤„
+				line.add(new PrintObject("ë²ˆí˜¸", 20));
+				line.add(new PrintObject("ì´ë¦„", 20));
+				line.add(new PrintObject("í‚¤(m)", 20));
+				line.add(new PrintObject("ëª¸ë¬´ê²Œ(kg)", 5));
 
 				if (e.getSource() == mPokePrintBtn) {
-	    			Printer prt = new Printer(new PrintObject("Æ÷ÄÏ¸ó¸®½ºÆ®", 20), line, rowList, true);
+	    			Printer prt = new Printer(new PrintObject("í¬ì¼“ëª¬ë¦¬ìŠ¤íŠ¸", 20), line, rowList, true);
 	    			prt.print();
     			}
     			else {
-	    			Preview prvP = new Preview(new PrintObject("Æ÷ÄÏ¸ó¸®½ºÆ®", 20), line, rowList, true);
+	    			Preview prvP = new Preview(new PrintObject("í¬ì¼“ëª¬ë¦¬ìŠ¤íŠ¸", 20), line, rowList, true);
 	    			prvP.preview();
     			}
 
 			} catch (SQLException sqlex) {
-				System.out.println("SQL ¿¡·¯ : " + sqlex.getMessage());
+				System.out.println("SQL ì—ëŸ¬ : " + sqlex.getMessage());
 				sqlex.printStackTrace();
 			} catch (Exception ex) {
-				System.out.println("DB Handling ¿¡·¯(¸®½ºÆ® ¸®½º³Ê) : " + ex.getMessage());
+				System.out.println("DB Handling ì—ëŸ¬(ë¦¬ìŠ¤íŠ¸ ë¦¬ìŠ¤ë„ˆ) : " + ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
 	}
 	public class UserDisplayButtonListener implements ActionListener {
 		public void actionPerformed (ActionEvent e) {
-			// DB¿¡¼­ °¡Á®¿À´Â µ¥ÀÌÅÍ¸¦ rowObjectsÀÇ ÇüÅÂ·Î ÀúÀåÇÏ°í ÀÌµéÀÇ ¸®½ºÆ®¸¦ Printer ¶Ç´Â Preview·Î º¸³» ÁÜ
-			ArrayList<RowObjects> rowList = new ArrayList<RowObjects>();	// ÇàµéÀÇ ¸®½ºÆ®
-			RowObjects line;												// ÇÏ³ªÀÇ Çà
-			PrintObject word;												// ÇÏ³ªÀÇ ´Ü¾î
+			// DBì—ì„œ ê°€ì ¸ì˜¤ëŠ” ë°ì´í„°ë¥¼ rowObjectsì˜ í˜•íƒœë¡œ ì €ì¥í•˜ê³  ì´ë“¤ì˜ ë¦¬ìŠ¤íŠ¸ë¥¼ Printer ë˜ëŠ” Previewë¡œ ë³´ë‚´ ì¤Œ
+			ArrayList<RowObjects> rowList = new ArrayList<RowObjects>();	// í–‰ë“¤ì˜ ë¦¬ìŠ¤íŠ¸
+			RowObjects line;												// í•˜ë‚˜ì˜ í–‰
+			PrintObject word;												// í•˜ë‚˜ì˜ ë‹¨ì–´
 			try {
-				Statement stmt = conn.createStatement();					// SQL ¹®Àå ¸¸µé±â À§ÇÑ Statement °´Ã¼
+				Statement stmt = conn.createStatement();					// SQL ë¬¸ì¥ ë§Œë“¤ê¸° ìœ„í•œ Statement ê°ì²´
 				ResultSet rs = stmt.executeQuery("SELECT * FROM user");
 				while(rs.next()) {
-					line = new RowObjects();								// 5°³ÀÇ ´Ü¾î°¡ 1ÁÙ
+					line = new RowObjects();								// 5ê°œì˜ ë‹¨ì–´ê°€ 1ì¤„
 					line.add(new PrintObject(rs.getString("user_id"), 20));
 					line.add(new PrintObject(rs.getString("id"), 20));
 					line.add(new PrintObject(rs.getString("pw"), 20));
 					line.add(new PrintObject(rs.getString("name"), 20));
 					if(rs.getString("gender_id").equals(1))
-						line.add(new PrintObject("³²¼º", 20));
+						line.add(new PrintObject("ë‚¨ì„±", 20));
 					else
-						line.add(new PrintObject("¿©¼º", 20));
+						line.add(new PrintObject("ì—¬ì„±", 20));
 					line.add(new PrintObject(rs.getString("phone"), 30));
 					line.add(new PrintObject(rs.getString("email"), 30));
-					rowList.add(line);										// Ãâ·ÂÇØ¾ß µÉ ÀüÃ¼ ¸®½ºÆ®¸¦ ¸¸µë									
+					rowList.add(line);										// ì¶œë ¥í•´ì•¼ ë  ì „ì²´ ë¦¬ìŠ¤íŠ¸ë¥¼ ë§Œë“¬									
 				}
 				stmt.close();
-				// °¢ ÆäÀÌÁöÀÇ Ä®·³ Çì´õ¸¦ À§ÇØ ÇÑ ÁÙ ¸¸µéÀ½
-				line = new RowObjects();									// 5°³ÀÇ ´Ü¾î°¡ 1ÁÙ
-				line.add(new PrintObject("¹øÈ£", 20));
-				line.add(new PrintObject("¾ÆÀÌµğ", 20));
-				line.add(new PrintObject("ºñ¹Ğ¹øÈ£", 20));
-				line.add(new PrintObject("ÀÌ¸§", 20));
-				line.add(new PrintObject("¼ºº°", 20));
-				line.add(new PrintObject("ÇÚµåÆù", 30));
-				line.add(new PrintObject("ÀÌ¸ŞÀÏ", 30));
+				// ê° í˜ì´ì§€ì˜ ì¹¼ëŸ¼ í—¤ë”ë¥¼ ìœ„í•´ í•œ ì¤„ ë§Œë“¤ìŒ
+				line = new RowObjects();									// 5ê°œì˜ ë‹¨ì–´ê°€ 1ì¤„
+				line.add(new PrintObject("ë²ˆí˜¸", 20));
+				line.add(new PrintObject("ì•„ì´ë””", 20));
+				line.add(new PrintObject("ë¹„ë°€ë²ˆí˜¸", 20));
+				line.add(new PrintObject("ì´ë¦„", 20));
+				line.add(new PrintObject("ì„±ë³„", 20));
+				line.add(new PrintObject("í•¸ë“œí°", 30));
+				line.add(new PrintObject("ì´ë©”ì¼", 30));
 
-				Preview prvU = new Preview(new PrintObject("À¯Àú¸®½ºÆ®", 20), line, rowList, true);
+				Preview prvU = new Preview(new PrintObject("ìœ ì €ë¦¬ìŠ¤íŠ¸", 20), line, rowList, true);
 				prvU.preview();
 
 			} catch (SQLException sqlex) {
-				System.out.println("SQL ¿¡·¯ : " + sqlex.getMessage());
+				System.out.println("SQL ì—ëŸ¬ : " + sqlex.getMessage());
 				sqlex.printStackTrace();
 			} catch (Exception ex) {
-				System.out.println("DB Handling ¿¡·¯(¸®½ºÆ® ¸®½º³Ê) : " + ex.getMessage());
+				System.out.println("DB Handling ì—ëŸ¬(ë¦¬ìŠ¤íŠ¸ ë¦¬ìŠ¤ë„ˆ) : " + ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
