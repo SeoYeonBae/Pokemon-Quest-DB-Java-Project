@@ -13,7 +13,7 @@
 ## :heavy_check_mark: 프로젝트 소개
 Data Base 수업을 통해 배운 데이터 처리 방식을 어릴적 좋아하는 캐릭터였던 포켓몬과 더해 오락적인 요소를 첨가해 개발하였습니다.
 
-## :heavy_check_mark: 클래스 다이어그램
+## :heavy_check_mark: ER 다이어그램
 ![class_diagram](https://user-images.githubusercontent.com/101535851/205272657-c81b2fd0-b7eb-4c93-bf84-ffe98b637bd6.png)
 
 ## :heavy_check_mark: 화면 소개
